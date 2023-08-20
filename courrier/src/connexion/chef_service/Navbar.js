@@ -1,6 +1,8 @@
 import { useRef } from "react";
 import{FaBars, FaTimes} from "react-icons/fa";
 import './Navbar.css';
+import '@fontsource/inter';
+
 function Navbar(){
     const navRef = useRef();
 
@@ -9,7 +11,7 @@ function Navbar(){
     }
     return(
         <header>
-            <h3>Logo</h3>
+            <h3>WATEBA</h3>
             <nav ref={navRef}>
                 <a href="/#">Parametre</a>
                 <a href="/#">Courriers interne</a>

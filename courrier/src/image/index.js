@@ -1,4 +1,4 @@
 const IMAGE = {
-    imgOne: require('./1.jpg')
+    imgOne: require('./1.png')
 }
 export default IMAGE;

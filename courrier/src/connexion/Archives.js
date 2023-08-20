@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Card, CardBody, CardTitle, Col, Container, Row } from 'reactstrap';
+import '@fontsource/inter';
+import { apiUrl } from '../config';
+
 
 const Archives = () => {
   const [archives, setArchives] = useState([]);
@@ -13,7 +16,7 @@ const Archives = () => {
   const [recipient, setRecipient] = useState('');
 
   useEffect(() => {
-    fetch('https://api.example.com/archives')
+    fetch(`${apiUrl}/archives`)
       .then((response) => response.json())
       .then((archives) => {
         setArchives(archives);
@@ -21,7 +24,7 @@ const Archives = () => {
   }, []);
 
   const handleRestoreArchive = (id) => {
-    fetch(`https://api.example.com/archives/${id}/restore`, {
+    fetch(`${apiUrl}/archives/${id}/restore`, {
       method: 'POST',
     })
       .then((response) => response.json())

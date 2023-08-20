@@ -4,11 +4,24 @@ import ParametreAdmin from "../connexion/parametreAdmin";
 import Users from "../connexion/Users";
 import WorkspaceAdmin from "../connexion/WorkspaceAdmin";
 
+import SecretaryDashoard from "../connexion/secretaire/Navbar";
+import IncomingMail from "../connexion/secretaire/IncomingMail";
+import OutComingMail from "../connexion/secretaire/OutgoingMail";
+import Archives from "../connexion/Archives";
+
 const routes = [
-   
+
     {
         path: '',
         element: <Connexion />
+    },
+    {
+        path: '/dashboard/secretary/outcoming',
+        element: <OutComingMail />
+    },
+    {
+        path: '/dashboard/secretary/incoming',
+        element: <IncomingMail />
     },
     {
         path: '/dashboard/Navbar',
@@ -16,15 +29,23 @@ const routes = [
     },
     {
         path: '/dashboard/parametreAdmin',
-        element: <ParametreAdmin/>
+        element: <ParametreAdmin />
     },
     {
         path: '/dashboard/workspaceAdmin',
-        element: <WorkspaceAdmin/>
+        element: <WorkspaceAdmin />
     },
     {
         path: '/dashboard/users',
-        element: <Users/>
+        element: <Users />
+    },
+    {
+        path: '/dashboard/secretary',
+        element: <SecretaryDashoard />
+    },
+    {
+        pqath:'/dashboard/Archives',
+        element:<Archives/>
     },
     /*{
         path: '/dashboard/',

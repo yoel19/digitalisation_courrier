@@ -1,9 +1,11 @@
 import React from 'react'
 import { useState } from 'react';
+import '@fontsource/inter';
+
 
 export default function ParametreAdmin() {
-    const [username, setUsername] = useState('admin');
-    const [password, setPassword] = useState('password');
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
 
     const handleLogout = () => {
         setUsername('');
@@ -16,7 +18,7 @@ export default function ParametreAdmin() {
     };
 
     return (
-        <div className="container mt-5">
+        <div className="container mt-5" style={{width: 500}}>
             <a href="/dashboard/navbar">Home</a>
 
             <h2>Paramètres Administrateur</h2>

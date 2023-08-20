@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Card, CardBody, CardTitle, Col, Container, Row } from 'reactstrap';
+import '@fontsource/inter';
+
 
 const InternalMail = () => {
   const [id, setId] = useState('');

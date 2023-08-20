@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Card, CardBody, CardTitle, Col, Container, Row } from 'reactstrap';
+import '@fontsource/inter';
+import { apiUrl } from '../config';
+
 
 const Workspace = () => {
   const [emails, setEmails] = useState([]);
@@ -9,7 +12,7 @@ const Workspace = () => {
   const [secretaryEmails, setSecretaryEmails] = useState([]);
 
   useEffect(() => {
-    fetch('https://api.example.com/emails')
+    fetch(`${apiUrl}/ Parameters/emails`)
       .then((response) => response.json())
       .then((emails) => {
         setEmails(emails);
@@ -17,7 +20,7 @@ const Workspace = () => {
         setOutgoingCount(emails.filter(email => email.direction === 'outgoing').length);
       });
 
-    fetch('https://api.example.com/secretary-emails')
+    fetch(`${apiUrl}/ Parameters/secretary-emails`)
       .then((response) => response.json())
       .then((emails) => {
         setSecretaryEmails(emails);
@@ -34,11 +37,11 @@ const Workspace = () => {
         <CardBody>
           <CardTitle>{email.subject}</CardTitle>
           <p>{email.body}</p>
-          <Button onClick={() => handleStatusChange('read')}>
-            Lire
+          <Button onClick={() => handleStatusChange('Valider')}>
+            valider
           </Button>
-          <Button onClick={() => handleStatusChange('unread')}>
-            non lu
+          <Button onClick={() => handleStatusChange('non valider')}>
+            non valider
           </Button>
         </CardBody>
       </Card>

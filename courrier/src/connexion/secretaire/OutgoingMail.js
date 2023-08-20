@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Card, CardBody, CardTitle, Col, Container, Row } from 'reactstrap';
+import '@fontsource/inter';
+
 
 const OutgoingMail = () => {
   const [id, setId] = useState('');
@@ -16,8 +18,11 @@ const OutgoingMail = () => {
   };
 
   return (
-    <Container>
+    <div>
+      <a href="/dashboard/navbar">Home</a>
+      <Container>
       <Row>
+        <div></div>
         <Col md="6">
           <h1>Courrier sortant</h1>
           <form onSubmit={handleSubmit}>
@@ -58,6 +63,9 @@ const OutgoingMail = () => {
         </Col>
       </Row>
     </Container>
+
+    </div>
+    
   );
 };
 

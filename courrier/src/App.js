@@ -7,6 +7,8 @@ import { RouterProvider } from 'react-router-dom';
 import navigation from './navigation';
 import IMAGE from './image/index';
 import Page from './connexion/secretaire/page';
+import '@fontsource/inter';
+
 
 
 

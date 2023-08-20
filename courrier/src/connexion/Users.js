@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Card, CardBody, CardTitle, Col, Container, Row } from 'reactstrap';
+import '@fontsource/inter';
+import { apiUrl } from '../config';
+
 
 const Users = () => {
   const [users, setUsers] = useState([]);
@@ -9,13 +12,13 @@ const Users = () => {
   const [onlineUsers, setOnlineUsers] = useState([]);
 
   useEffect(() => {
-    fetch('https://api.example.com/users')
+    fetch(`${apiUrl}/ Users`)
       .then((response) => response.json())
       .then((users) => {
         setUsers(users);
       });
 
-    fetch('https://api.example.com/online-users')
+    fetch(' ${apiUrl}/online-users')
       .then((response) => response.json())
       .then((onlineUsers) => {
         setOnlineUsers(onlineUsers);
@@ -23,7 +26,7 @@ const Users = () => {
   }, []);
 
   const handleCreateUser = () => {
-    fetch('https://api.example.com/users', {
+    fetch(`${apiUrl}/ Users`, {
       method: 'POST',
       body: JSON.stringify({
         username,
@@ -38,7 +41,7 @@ const Users = () => {
   };
 
   const handleDeleteUser = (id) => {
-    fetch(`https://api.example.com/users/${id}`, {
+    fetch(`${apiUrl}/ Users ${id}`, {
       method: 'DELETE',
     })
       .then((response) => response.json())
@@ -75,23 +78,41 @@ const Users = () => {
   };
 
   return (
-    <Container>
-      <Row>
-        <Col md="6">
-          <h1>Utilisateurs</h1>
-          <ul>
-            {renderUsers()}
-          </ul>
-        </Col>
-        <Col md="6">
-          <h1>Utilisateurs en ligne</h1>
-          <ul>
-            {renderOnlineUsers()}
-          </ul>
-        </Col>
-      </Row>
-    </Container>
+    <div>
+      <a href="/dashboard/navbar">Home</a>
+      <Container>
+        <Row>
+          <Col md="6">
+            <h1>Utilisateurs</h1>
+            <ul>
+              {renderUsers()}
+            </ul>
+            <form onSubmit={handleCreateUser} className="card card-body">
+              
+              <br />
+              <input
+                type="text"
+                placeholder="Poste"
+                value={position}
+                onChange={(e) => setPosition(e.target.value)}
+              />
+              <br />
+              <Button type="submit">Ajouter</Button>
+            </form>
+          </Col>
+          <Col md="6">
+            <h1>Utilisateurs en ligne</h1>
+            <ul>
+              {renderOnlineUsers()}
+            </ul>
+          </Col>
+        </Row>
+      </Container>
+
+
+    </div>
   );
+
 };
 
 export default Users;

@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Card, CardBody, CardTitle, Col, Container, Row } from 'reactstrap';
+import '@fontsource/inter';
+import { apiUrl } from '../../config';
+
 
 const Parameters = () => {
   const [emails, setEmails] = useState([]);
@@ -13,19 +16,19 @@ const Parameters = () => {
   const [outgoingCount, setOutgoingCount] = useState(0);
 
   useEffect(() => {
-    fetch('https://api.example.com/emails')
+    fetch(`${apiUrl}/ Parameters/emails`)
       .then((response) => response.json())
       .then((emails) => {
         setEmails(emails);
       });
 
-    fetch('https://api.example.com/users/me')
+    fetch(`${apiUrl}/ Parameters/users/me`)
       .then((response) => response.json())
       .then((user) => {
         setUser(user);
       });
 
-    fetch('https://api.example.com/statistics/emails')
+    fetch(`${apiUrl}/statistics/emails `)
       .then((response) => response.json())
       .then((statistics) => {
         setIncomingCount(statistics.incomingCount);
@@ -34,7 +37,7 @@ const Parameters = () => {
   }, []);
 
   const handleLogout = () => {
-    fetch('https://api.example.com/logout')
+    fetch(`${apiUrl}/logout `)
       .then((response) => response.json())
       .then((user) => {
         setUser(user);
