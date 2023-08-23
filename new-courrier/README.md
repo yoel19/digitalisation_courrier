@@ -8,4 +8,4 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 
-npm install clsx mardown-to-jsx material-ui-popup-state react-final-form @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome @mui/material @emotion/react @emotion/styled
+npm install clsx mardown-to-jsx material-ui-popup-state react-final-form @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome @mui/material @emotion/react @emotion/styled --trace-warnings
