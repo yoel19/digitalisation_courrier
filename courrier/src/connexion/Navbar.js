@@ -3,6 +3,8 @@ import{FaBars, FaTimes} from "react-icons/fa";
 import './Navbar.css';
 import { useNavigate } from "react-router-dom";
 import '@fontsource/inter';
+import IMAGE from "../image";
+
 
 function Navbar(){
     const navRef = useRef();
@@ -30,6 +32,7 @@ function Navbar(){
             <button onClick={showNavbar}>
                 <FaBars/>
             </button>
+           
         </header>
     )
 }
