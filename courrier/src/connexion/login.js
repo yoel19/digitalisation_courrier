@@ -9,25 +9,34 @@ import { apiUrl } from '../config';
 export default function Connexion() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isLogin, setisLogin] = useState(false);
+  const [error, setError] = useState('');
   const navigate = useNavigate()
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    fetch(`${apiUrl}/login`, {
+    const response = await fetch(`${apiUrl}/register`, {
       method: 'POST',
-      body: {
-        email: '',
-        password: ''
-      }
-    })
-      .then((response) => response.json())
-      .then(() => {
-      });
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password }),
+    });
 
-    navigate("/dashboard/navbar")
-  }
+    if (response.ok) {
+      const data = await response.json();
+      console.log(data);
+
+      // Stockage du token JWT dans le local storage
+      localStorage.setItem('token', data.accessToken);
+
+      // Redirection vers la page d'accueil ou autre page sécurisée
+      // history.push('/accueil');
+      window.location.href = '/dashboard';
+    } else {
+      setError('Échec de l\'authentification');
+    }
+  };
 
   return (
     <div className='sign-in-page'>
@@ -41,24 +50,25 @@ export default function Connexion() {
       </div>
       <div style={{ width: '50%' }} className='form'>
         <form className="all.form" onSubmit={handleSubmit}>
-          <div class='text-3xl'>
+          <div className='text-3xl'>
             <h1>Connectez Vous</h1>
+            {error && <p>{error}</p>}
           </div>
 
-          <div classe="form-group">
-            <label for=" exampleInputEmail"> Email:</label>
+          <div className="form-group">
+            <label htmlFor=" exampleInputEmail"> Email:</label>
             <input
               type='email'
-              class="form-control"
+              className="form-control"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-          <div classe="form-group">
-            <label for=" exampleInputPassword1">Mot de passe:</label>
+          <div className="form-group">
+            <label htmlFor=" exampleInputPassword1">Mot de passe:</label>
             <input
               type='password'
-              class="form-control"
+              className="form-control"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />

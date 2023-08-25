@@ -11,11 +11,11 @@ function Navbar() {
         <header>
             <h3>WATEBA</h3>
             <nav ref={navRef}>
-                <a href="/#">Parametre</a>
+                <a href='/dashboard/secretary/parameters'>Parametre</a>
                 <a href='/dashboard/secretary/incoming'>Courriers entrant</a>
                 <a href='/dashboard/secretary/outcoming'>courriers sortants</a>
-                <a href="/#">courrier interne</a>
-                <a href="/#">Archive</a>
+
+                <a href='/dashboard/Archives'>Archive</a>
                 <button className="nav-btn nav-close-btn" onClick={showNavbar}>
                     <FaTimes />
 

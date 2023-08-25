@@ -29,17 +29,14 @@ const OutgoingMail = () => {
 
   return (
     <div>
-      <a href="/dashboard/navbar">Home</a>
+      <a href="/dashboard/secretary">Home</a>
       <Container>
         <Row>
           <div></div>
           <Col md="6">
             <h1>Courrier sortant</h1>
             <form onSubmit={handleSubmit}>
-              <div className="form-group">
-                <label htmlFor="id">ID</label>
-                <input type="text" className="form-control inputGlobal" id="id" value={id} onChange={(e) => setId(e.target.value)} />
-              </div>
+
               <div className="form-group">
                 <label htmlFor="label">Libellé</label>
                 <input type="text" className="form-control inputGlobal" id="label" value={label} onChange={(e) => setLabel(e.target.value)} />
